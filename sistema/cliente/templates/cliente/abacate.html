@@ -1,0 +1,35 @@
+<html>
+    <head>
+    </head>
+    <body>
+
+        <p>
+            <a href="{% url 'cliente:hora' %}">Ver a hora</a>
+        </p> 
+        <p>
+            <span>Nome: {{ nome }} </span>
+        </p> 
+        <p>
+            <span>Nome: {{ dtNascimento }} </span>
+        </p> 
+        <p>
+            <span>Nome: {{ cor }} </span>
+        </p> 
+        <p>
+            <span>Nome: {{ status }} </span>
+        </p>   
+         <p>
+            <span>Nome: {{ rg }} </span>
+        </p>
+        {% if cpf %} 
+           <p>
+            <span>Nome: {{ cpf }} </span>
+           </p> 
+        {% else %}
+            <p>
+            <span>Cpf nao informado </span>
+           </p> 
+        {% endif %}   
+          <p>
+            <span>Nome: {{ religiao }} </span>
+        </p>    
