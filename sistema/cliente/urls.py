@@ -8,6 +8,8 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("hora/", views.hora, name="hora"),
     path("abacate/", views.abacate, name="Abacate"),
-    
-
+    path("cidade/", views.cidadeView, name="cidade"),
+    path("cliente/", views.clienteView, name="cliente"),
+    path("endereco/", views.enderecoView, name="endereco"),
+    path("cadastra/", views.cadastraView, name="cadastra"),
 ]

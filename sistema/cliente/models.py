@@ -35,4 +35,8 @@ class Cliente(models.Model):
     def __str__(self):
         return self.nm_cliente 
 
+class Cadastra(models.Model):
+    nm_cadastra = models.CharField(max_length=5)
+            
+
 

@@ -3,6 +3,12 @@ from django.shortcuts import render
 from django .http import HttpResponse 
 from datetime import datetime
 
+#Formulários
+from .forms import CidadeForm
+from .forms import ClienteForm
+from .forms import EnderecoForm
+from .forms import CadastraForm
+
 # Create your views here.
 
 
@@ -35,3 +41,38 @@ def abacate(request):
      
     }
     return render(request, "cliente/abacate.html", context) 
+
+def cidadeView(request):
+
+    form = CidadeForm()
+
+    context = {"form": form}
+
+
+    return render(request, "cliente/cidade.html", context) 
+
+def clienteView(request):
+
+    form = ClienteForm()
+
+    context = {"form": form}
+
+
+    return render(request, "cliente/cliente.html", context)
+
+def enderecoView(request):
+
+    form = EnderecoForm()
+
+    context = {"form": form}
+
+
+    return render(request, "cliente/endereco.html", context)
+
+def cadastraView(request):
+
+    form = CadastraForm()
+
+    context = {"form": form}
+    
+    return HttpResponse("Funciona")

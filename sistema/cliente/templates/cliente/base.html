@@ -1,0 +1,35 @@
+{% load static %}
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="autor" content="Julio">
+        {% block title %}    
+                 <title>Meu sistema</title>
+        {% endblock title %} 
+          
+        {% comment Javascript %}{% endcomment %}
+        <script src="{% static 'cliente/js/jquery.min.js' %}"></script>
+        <script src="{% static 'cliente/js/bootstrap.min.js' %}"></script>
+        
+        {% block js %}
+        {% endblock js %}
+
+        {% comment CSS %}{% endcomment %}
+        <link href="{% static 'cliente/css/bootstarp.min.css' %}" rel="stylesheet">
+        <link href="{% static 'cliente/css/teste.css' %}" rel="stylesheet">
+
+        {% block css %}
+        {% endblock css %}   
+        
+    </head>
+    <body>
+
+    
+        {% block conteudo %}
+        
+        {% endblock conteudo %}    
+    
+    </body>
+</html>
