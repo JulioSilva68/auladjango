@@ -3,7 +3,7 @@ from django.contrib import admin
 from .models import Cidade
 from .models import Endereco
 from .models import Cliente
-from .models import Cadastra
+
 
 # Register your models here.
 

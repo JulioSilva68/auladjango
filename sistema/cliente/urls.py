@@ -11,5 +11,6 @@ urlpatterns = [
     path("cidade/", views.cidadeView, name="cidade"),
     path("cliente/", views.clienteView, name="cliente"),
     path("endereco/", views.enderecoView, name="endereco"),
-    path("cadastra/", views.cadastraView, name="cadastra"),
+    path("cadastro/", views.clienteView, name="cadastro"),
+    path("busca/", views.clienteView, name="busca"),
 ]

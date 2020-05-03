@@ -1,12 +1,23 @@
 {% extends "cliente/base.html" %}
 
-    {% block conteudo %}
-        <form action="{% url 'cliente:cadastra' %}" method="post">
+
+
+    {% block conteudo %} 
+
+        {% if erro %}
+            <div class="alert alert-danger">{{ erro }}</div>
+        {% endif %}  
+
+        {% if sucesso %}
+            <div class="alert alert-danger">{{ sucesso }}</div>
+        {% endif %}      
+
+        <form action="{% url 'cliente:cliente' %}" method="post">
             <table class="table table-striped">
 
                 {{ form.as_table}}
 
-                <tr><td> <input type="submit" class="btn btn-primary"/> </tr></td>
+                <tr><td> <input type="submit" value="Enviar" class="btn btn-primary"/></td></tr>
             </table>
         </form>        
 

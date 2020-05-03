@@ -7,7 +7,9 @@ from datetime import datetime
 from .forms import CidadeForm
 from .forms import ClienteForm
 from .forms import EnderecoForm
-from .forms import CadastraForm
+
+#Models
+from .models import Cliente
 
 # Create your views here.
 
@@ -38,26 +40,48 @@ def abacate(request):
         "rg": rg,
         "cpf": cpf,
         "religiao": religiao
-     
+
     }
     return render(request, "cliente/abacate.html", context) 
 
 def cidadeView(request):
 
+    context = {}
     form = CidadeForm()
+    context["form"] = form 
 
-    context = {"form": form}
+    if request.method == "POST":
+        resultado = CidadeForm(request.POST)
+        if resultado.is_valid():
 
+            resultado.save()
+            sucesso = "Registro salvo com sucesso"
+            context["sucesso"] = sucesso
+        else:
+            
+            erro = "Registro não foi salvo"
+            context["erro"] = erro 
 
-    return render(request, "cliente/cidade.html", context) 
+    return render(request, "cliente/cidade.html", context)                
 
+    
 def clienteView(request):
 
+    context = {}
     form = ClienteForm()
+    context["form"] = form
 
-    context = {"form": form}
-
-
+    if request.method== "POST":
+        resultado = ClienteForm(request.POST)
+        if resultado.is_valid():
+            resultado.save()
+            sucesso = "Cliente salvo com sucesso"
+            context["sucesso"] = sucesso
+        else:
+            erro = "Cliente não foi salvo"
+            context["erro"] = erro    
+            
+    
     return render(request, "cliente/cliente.html", context)
 
 def enderecoView(request):
@@ -69,10 +93,10 @@ def enderecoView(request):
 
     return render(request, "cliente/endereco.html", context)
 
-def cadastraView(request):
+def clienteBusca(request):
 
-    form = CadastraForm()
+    clientes = Cliente.objects.all()
 
-    context = {"form": form}
+    context = {"clientes": clientes}
     
-    return HttpResponse("Funciona")
+    return render(request, "cliente/buscaCliente.html", context)

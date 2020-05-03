@@ -1,13 +1,30 @@
-<html>
-    <head>
-    </head>
-    <body>
+{% block title %}
+		<title>Meu sistema - Abacate</title>
+	{% endblock title %}
 
-        {% comment ' Código comentado porque sim' %}
-            <div>
-                qq coisa
-            </div>
-        {% endcomment %}        
+	{% block abacate %}
+		<a class="navbar-brand ml-md-4 ml-lg-5" href="{% url 'cliente:index' %}">Index</a>
+	{% endblock abacate %}
+
+	{% block navegacao %}
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon">Home</span>
+		</button>
+	{% endblock %}
+
+	{% block conteudo %}
+
+		{% comment 'Código comentado porque sim' %}
+			<div>
+				qq coisa
+			</div>
+		{% endcomment %}
+
+		<!-- Sou o comentário do HTML -->
+
+    {% endblock conteudo %}    
+
+    
 
         <p>
             <a href="{% url 'cliente:hora' %}">Ver a hora</a>
@@ -23,19 +40,19 @@
         </p> 
         <p>
             <span>Nome: {{ status }} </span>
-        </p>   
-         <p>
-            <span>Nome: {{ rg }} </span>
-        </p>
-        {% if cpf %} 
-           <p>
-            <span>Nome: {{ cpf }} </span>
-           </p> 
-        {% else %}
-            <p>
-            <span>Cpf nao informado </span>
-           </p> 
-        {% endif %}   
-          <p>
-            <span>Nome: {{ religiao }} </span>
-        </p>    
+    </p>   
+        <p>
+        <span>Nome: {{ rg }} </span>
+    </p>
+    {% if cpf %} 
+        <p>
+        <span>Nome: {{ cpf }} </span>
+        </p> 
+    {% else %}
+        <p>
+        <span>Cpf nao informado </span>
+        </p> 
+    {% endif %}   
+        <p>
+        <span>Nome: {{ religiao }} </span>
+    </p>    

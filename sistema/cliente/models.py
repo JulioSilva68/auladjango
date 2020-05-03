@@ -25,18 +25,20 @@ class Endereco(models.Model):
 
 class Cliente(models.Model):
     nm_cliente = models.CharField(verbose_name="Nome do Cliente", max_length=45)
+    nm_mae = models.CharField(verbose_name="Nome da mãe", max_length=45, null=True, blank=True)
+    email = models.EmailField(verbose_name="Email", max_length=45, default="Não informado")
     nr_cpf = models.CharField(verbose_name="Número do CPF",max_length=14)
+    nr_rg = models.CharField(verbose_name="Numero do RG",max_length=15, default=True)
     dt_nascimento = models.DateField(verbose_name="Data de nascimento")
     idade = models.IntegerField(verbose_name="Idade")
-    nr_endereco = models.IntegerField()
-    dsc_complemento = models.TextField()
+    nr_endereco = models.IntegerField(null=True, blank=True)
+    dsc_complemento = models.TextField(null=True, blank=True)
     cd_endereco = models.ForeignKey(Endereco, on_delete=models.PROTECT)
 
     def __str__(self):
         return self.nm_cliente 
 
-class Cadastra(models.Model):
-    nm_cadastra = models.CharField(max_length=5)
+
             
 
 
